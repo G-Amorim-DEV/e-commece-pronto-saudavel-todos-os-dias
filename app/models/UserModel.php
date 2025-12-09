@@ -1,7 +1,5 @@
 <?php
-
-//app\models\UserModel.php
-
+// app/models/UserModel.php
 
 class UserModel
 {
@@ -12,6 +10,22 @@ class UserModel
         $this->db = $conn;
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
+
+    // Busca usuário por ID (inclui coluna tipo_usuario)
+    public function findById(int $id): ?array
+    {
+        $sql = "SELECT id, nome, email, telefone, data_cadastro, tipo_usuario
+                FROM usuario
+                WHERE id = :id
+                LIMIT 1";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+    }
+
 
     /**
      * Buscar usuário por ID

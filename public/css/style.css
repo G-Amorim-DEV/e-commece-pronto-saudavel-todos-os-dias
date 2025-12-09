@@ -200,4 +200,33 @@
     max-width: 400px;
 }
 
+.login-wrapper::before {
+    background-image: url('<?= BASE_URL ?>/public/images/header_images/fundo_legumes.png');
+}
+
+/* ======== FORMULÁRIO EM DUAS COLUNAS PARA ENDEREÇOS ======== */
+.form-endereco {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+    width: 100%;
+}
+
+.form-endereco .grupo-input {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* O bloco do botão ocupa as duas colunas */
+.dosBotoes {
+    grid-column: 1 / -1; 
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
 
