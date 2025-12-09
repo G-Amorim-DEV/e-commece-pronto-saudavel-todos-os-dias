@@ -13,7 +13,10 @@
                 ['id' => 3, 'nome' => 'Sobremesa 1', 'preco' => 15.00, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sobremesa.jpg'],
                 ['id' => 4, 'nome' => 'Marmita 2', 'preco' => 27.00, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/marmita.jpeg'],
                 ['id' => 5, 'nome' => 'Sopa 2', 'preco' => 17.50, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sopa.jpg'],
-                ['id' => 6, 'nome' => 'Sobremesa 2', 'preco' => 18.20, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sobremesa.jpg']
+                ['id' => 6, 'nome' => 'Sobremesa 2', 'preco' => 18.20, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sobremesa.jpg'],
+                ['id' => 7, 'nome' => 'Marmita 3', 'preco' => 27.00, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/marmita.jpeg'],
+                ['id' => 8, 'nome' => 'Sopa 3', 'preco' => 17.50, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sopa.jpg'],
+                ['id' => 9, 'nome' => 'Sobremesa 3', 'preco' => 18.20, 'imagem_url' => $baseUrl . '/public/images/pg_home_images/sobremesa.jpg']
             ];
 
             foreach ($produtosMaisVendidos as $produto):

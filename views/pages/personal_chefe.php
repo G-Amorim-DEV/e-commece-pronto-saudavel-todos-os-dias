@@ -138,6 +138,17 @@
 
 <section class="segunda_section">
 
+
+    <section class="video_acao_personal_chefe">
+
+        <img src="<?= $baseUrl ?>/public/images/pg_personal_chefe_images/como_funciona_personal_chefe.jpg" alt=""> 
+
+        <video class="video_mobile" autoplay muted loop playsinline>
+        <source src="<?= $baseUrl ?>\public\images\pg_personal_chefe_images\personal_chef.mp4" type="video/mp4">
+        </video>
+
+    </section>
+
     <section class="acao_personal_chefe">
 
         <h2>Como funciona ?</h2>
@@ -149,9 +160,8 @@
 
     </section>
 
-    <section class="foto_acao_personal_chefe">
-        <img src="<?= $baseUrl ?>/public/images/pg_personal_chefe_images/como_funciona_personal_chefe.jpg" alt="">
-    </section>
+    
+
 </section>
 
 <section class="informacoes_personal_chefe">
@@ -177,7 +187,7 @@
         Podem ser feitos em dinheiro, pix ou transferência bancária
     </p>
 
-    <h4>Consultar taxa de deslocamento, informando o Cep para o atendimento</h4>
+    <h6>Consultar taxa de deslocamento, informando o Cep para o atendimento</h6>
 
     <a class="telefone_para_contato" href="https://wa.me/5511940367571" target="_blank" rel="noopener noreferrer">Contato Para Agendamento e Duvidas</a>
 

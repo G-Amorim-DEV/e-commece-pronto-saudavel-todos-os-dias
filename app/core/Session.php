@@ -37,7 +37,7 @@ function logout() {
     session_destroy();
 
     // 2. Define o URL de destino
-    $url_destino = "/e-commece-pronto-saudavel-todos-os-dias/public/index.php?page=home";
+    //$url_destino = "/e-commece-pronto-saudavel-todos-os-dias/public/index.php?page=home";
 
     // 3. Imprime o script JavaScript para o alert e redirecionamento
     // O JS usa 'window.location.href' para redirecionar após o alert ser fechado.
@@ -45,11 +45,11 @@ function logout() {
     // Usa '\n' para a quebra de linha dentro do alert
     echo "alert('Você deslogou com sucesso\\nObrigado e volte sempre!');";
     // Redireciona o navegador
-    echo "window.location.href = '{$url_destino}';";
+    //echo "window.location.href = '{$url_destino}';";
     echo "</script>";
     
-    // 4. Encerra o script PHP
-    exit;
+    header("Location: " . BASE_URL . "/public/index.php?page=home");
+    exit();
 }
 
 function verificaAdmin() {

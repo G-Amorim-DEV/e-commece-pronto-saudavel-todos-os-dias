@@ -1,0 +1,123 @@
+/* --- ESTILOS GERAIS DE CRUD (Admin) --- */
+
+/* Card Genérico (Base para formulários e tabelas) */
+.card-admin {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 90%; /* Ocupa 90% da tela no mobile */
+    margin: 20px 0; /* Um respiro vertical */
+    position: relative;
+    z-index: 10; /* Fica acima do fundo */
+}
+
+/* Variação para Formulários (Inserir/Editar) - Mais estreito */
+.card-admin.formulario {
+    max-width: 600px; 
+}
+
+/* Variação para Listagem (Tabela) - Mais largo */
+.card-admin.listagem {
+    max-width: 1000px;
+    overflow-x: auto; /* Se a tabela for muito grande, cria barra de rolagem */
+}
+
+/* --- ESTILOS DOS INPUTS E LABELS --- */
+.card-admin h1 {
+    color: #12602c;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaço entre cada campo */
+    text-align: left; /* Garante que labels fiquem a esquerda */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: #12602c;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(18, 96, 44, 0.2);
+}
+
+textarea.form-control {
+    resize: vertical; /* Permite redimensionar só na altura */
+}
+
+/* --- ESTILOS DA TABELA (Listar) --- */
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabela-produtos th {
+    background-color: #12602c;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela-produtos td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela-produtos tr:hover {
+    background-color: #f1f8f2; /* Efeito hover suave na linha */
+}
+
+.tabela-produtos img.miniatura {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* --- BOTOES --- */
+.botoes-acao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-salvar {
+    background-color: #12602c;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-cancelar {
+    color: #666;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+.btn-cancelar:hover { color: red; }

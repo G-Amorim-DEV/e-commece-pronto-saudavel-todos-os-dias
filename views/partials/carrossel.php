@@ -1,5 +1,5 @@
 <!-- Carrossel Banner -->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="false">
     <div class="carousel-inner">
 
         <div class="carousel-item active">
@@ -12,18 +12,6 @@
 
         <div class="carousel-item">
             <img src="../public/images/banner/banner_3.png" class="img_banner d-block w-100" alt="Banner 3">
-        </div>
-
-        <div class="carousel-item">
-            <img src="../public/images/banner/banner_4.png" class="img_banner d-block w-100" alt="Banner 4">
-        </div>
-
-        <div class="carousel-item">
-            <img src="../public/images/banner/banner_5.png" class="img_banner d-block w-100" alt="Banner 5">
-        </div>
-        
-        <div class="carousel-item">
-            <img src="../public/images/banner/banner_6.png" class="img_banner d-block w-100" alt="Banner 6">
         </div>
 
     </div>

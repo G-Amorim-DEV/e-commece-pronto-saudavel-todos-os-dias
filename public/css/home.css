@@ -1,8 +1,8 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Container do carrossel */
@@ -10,7 +10,7 @@
 
     margin-top: 130px;
     width: 100%;
-    max-height: 600px;
+    
     /* altura padrão para desktop/tablet */
     overflow: hidden;
     display: block;
@@ -71,37 +71,36 @@
 
 /* BTN flutuante VVVVVVVVVVVVVVVV */
 .btn_whats_flutuante {
-    position: fixed; /* Fixa na tela */
-    bottom: 40px; /* Distância do btn para baixo */
-    right: 20px; /* Distância para direita */
-    z-index: 1000; /* Ordem, de altura de camada. */
-
-
-
-
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 1000;
 }
-.btn_whats_flutuante a{
-    /* Estilos Visuais do btn*/
-    color: rgb(255, 1, 1);
-    font-size: 20px;
-    background-color: #e7e700;
-    text-decoration: none;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer; 
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); 
+
+
+
+/* Efeito hover (desktop) */
+.btn_whats_flutuante a:hover {
+  transform: scale(1.08);
+}
+
+/* Imagem dentro do botão */
+.btn_whats_flutuante img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* remove a aparência de borda */
+  object-fit: cover; /* garante que preencha sem sobras */
 }
 
 /* Keyframes para animação contínua */
 @keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Responsividade */
@@ -116,54 +115,54 @@
         padding-right: 30px;
     }
 
-    .marquee {
-        animation-duration: 50s;
-    }
+  .marquee {
+    animation-duration: 50s;
+  }
 }
 
 @media (max-width: 480px) {
-    #carouselExampleSlidesOnly {
-        margin-top: 60px;
-        max-height: 180px;
-        /* altura menor em celulares pequenos */
-    }
+  #carouselExampleSlidesOnly {
+    margin-top: 60px;
+    max-height: 180px;
+    /* altura menor em celulares pequenos */
+  }
 }
 
 @media (max-width: 480px) {
-    .marquee-content {
-        padding-right: 20px;
-    }
+  .marquee-content {
+    padding-right: 20px;
+  }
 
-    .marquee {
-        animation-duration: 50s;
-    }
+  .marquee {
+    animation-duration: 50s;
+  }
 }
 
 .section-carousel {
-    padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .section-carousel__title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--cor-texto-principal);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--cor-texto-principal);
 }
 
 .carousel-container {
     position: relative;
     width: 95%;
-    max-width: 1200px;
+    
     /* Largura máxima do carrossel */
     margin: 0 auto;
     /* Centraliza o container na página */
 }
 
 .carousel {
-    display: flex;
-    overflow-x: auto;
-    /* PERMITE A ROLAGEM HORIZONTAL */
-    padding: 1rem;
+  display: flex;
+  overflow-x: auto;
+  /* PERMITE A ROLAGEM HORIZONTAL */
+  padding: 1rem;
 
 
     scroll-snap-type: x mandatory;
@@ -171,11 +170,11 @@
     scroll-behavior: smooth;
     /* Anima a rolagem quando usamos JS */
 
-    /* Esconde a barra de rolagem feia */
-    scrollbar-width: none;
-    /* Para Firefox */
-    -ms-overflow-style: none;
-    /* Para Internet Explorer e Edge */
+  /* Esconde a barra de rolagem feia */
+  scrollbar-width: none;
+  /* Para Firefox */
+  -ms-overflow-style: none;
+  /* Para Internet Explorer e Edge */
 
     /* Adiciona um espaçamento entre os cards */
     gap: 1.5rem;
@@ -185,55 +184,55 @@
 
 /* Esconde a barra de rolagem para navegadores Webkit (Chrome, Safari) */
 .carousel::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Cada card dentro do carrossel */
-.carousel>.product-card {
-    /* O "PONTO DE PARADA" do ímã */
-    scroll-snap-align: start;
+.carousel > .product-card {
+  /* O "PONTO DE PARADA" do ímã */
+  scroll-snap-align: start;
 
-    /* Garante que os cards não encolham e mantenham sua largura */
-    flex: 0 0 280px;
-    /* flex-grow: 0, flex-shrink: 0, flex-basis: 280px */
+  /* Garante que os cards não encolham e mantenham sua largura */
+  flex: 0 0 280px;
+  /* flex-grow: 0, flex-shrink: 0, flex-basis: 280px */
 }
 
 .carousel-button {
-    position: absolute;
-    /* Posiciona os botões sobre o carrossel */
-    top: 50%;
-    /* Centraliza verticalmente */
-    transform: translateY(-50%);
-    /* Ajuste fino da centralização vertical */
+  position: absolute;
+  /* Posiciona os botões sobre o carrossel */
+  top: 50%;
+  /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  /* Ajuste fino da centralização vertical */
 
-    background-color: white;
-    border: 1px solid var(--cor-borda);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--cor-texto-secundario);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    /* Garante que fiquem acima dos cards */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: white;
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--cor-texto-secundario);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  /* Garante que fiquem acima dos cards */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-button--prev {
-    left: -20px;
-    /* Posiciona o botão esquerdo para fora do container */
+  left: -20px;
+  /* Posiciona o botão esquerdo para fora do container */
 }
 
 .carousel-button--next {
-    right: -20px;
-    /* Posiciona o botão direito para fora do container */
+  right: -20px;
+  /* Posiciona o botão direito para fora do container */
 }
 
 .sessao_atendimento {
-    background-color: #a9bcc3b4;
+    background-color: #12602c;
     padding: 30px;
     display: flex;
     align-items: center;
@@ -243,11 +242,16 @@
 }
 
 .texto_atendimento {
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
     flex-grow: 4;
     max-width: 70%;
 }
 
 .texto_atendimento h3 {
+    text-align: center;
+    width: 100%;
     font-size: 1.3em;
     font-weight: 700;
     margin-top: 0;
@@ -262,10 +266,17 @@
 }
 
 .pedidos_whatsapp strong {
-    color: #ff0000;
-    font-weight: bold;
+  color: #ff0000;
+  font-weight: bold;
 }
 
+/* container do botão pra alinhar à direita em desktop */
+.div_btn_whatsapp {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* BOTÃO WHATSAPP */
 .btn_whatapp {
     display: flex;
     justify-content: center;
@@ -284,33 +295,55 @@
 }
 
 .btn_whatapp:hover {
-    background-color: #22c75e;
+  background-color: #22c75e;
+  transform: translateY(-2px);
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 768px) {
+  .sessao_atendimento {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ESCONDER IMAGEM NO MOBILE */
+  .box_restricoes {
+    display: none;
+  }
+
+  .box_conteudo_atendimento {
+    width: 100%;
+  }
+
+  .div_btn_whatsapp {
+    justify-content: center;
+  }
 }
 
 /* Media Query para telas menores (para responsividade) */
 @media (max-width: 768px) {
-    .sessao_atendimento {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .sessao_atendimento {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .texto_atendimento {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+  .texto_atendimento {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .div_btn_whatsapp {
-        margin-top: 0;
-        /* Remove a margem superior em telas pequenas */
-        align-self: flex-start;
-        /* Alinha o botão à esquerda em telas pequenas */
-    }
+  .div_btn_whatsapp {
+    margin-top: 0;
+    /* Remove a margem superior em telas pequenas */
+    align-self: flex-start;
+    /* Alinha o botão à esquerda em telas pequenas */
+  }
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 /* SESSÃO PERSONAL CHEFE  */
@@ -356,6 +389,7 @@
     border-radius: 50px;
     height: auto;
     display: block;
+    padding-left: 5px;
 }
 
 .bloco_direito_informacoes {
@@ -378,30 +412,51 @@
 }
 
 .texto {
-    text-align: justify;
+  text-align: justify;
 }
 
 .botoes {
+
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-self: start;
+    align-self: center;
     justify-items: center;
-    gap: 10px;
     
 }
 
 .botoes_personal_chefe {
-    padding: 10px 12px;
+    
     background-color: white;
     color: #12602C;
     border-radius: 10px;
-    width: 100%;
+    
+    height: 30px;
+    width: 350px;
     max-width: 220px;
     text-align: center;
     font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
+.botoes_personal_chefe a{
 
+    text-decoration: none;
+    font-size: 1rem;
+    color: #12602C;
+
+}
+
+#contador-animado{
+
+    margin: 0;
+    padding: 0;
+    
+
+}
 
 /* RESPONSIVO (Tablets - 1024px ou menos)  */
 @media (max-width: 1000px) { 
@@ -465,8 +520,8 @@
     }
 
     .botoes {
-        padding: 0 15%; 
-        gap: 15px;
+        padding: 0; 
+        gap: 20px;
     }
 
     .botoes_personal_chefe {
@@ -500,7 +555,7 @@
     }
 
     .botoes {
-        gap: 215px;
+        gap: 2%;
     }
 
     .imagem_personal_chefe img {
@@ -538,7 +593,7 @@
     }
 
     .botoes {
-        gap: 215px;
+        gap: 2%;
     }
 
     .imagem_personal_chefe img {
@@ -669,73 +724,73 @@ body {
 
 /* Estilo para a informação de endereço (localizada no final da seção) */
 .endereco-info {
-    flex-shrink: 0;
-    /* Não deve ser encolhido */
-    text-align: center;
-    padding: 5px;
-    margin-top: 5px;
-    /* Pequena margem para separar do content-wrapper */
-    font-size: 0.8em;
+  flex-shrink: 0;
+  /* Não deve ser encolhido */
+  text-align: center;
+  padding: 5px;
+  margin-top: 5px;
+  /* Pequena margem para separar do content-wrapper */
+  font-size: 0.8em;
 }
 
 .endereco-info a {
-    color: #333;
-    text-decoration: none;
-    display: block;
+  color: #333;
+  text-decoration: none;
+  display: block;
 }
 
 /* MEDIA QUERY para telas de DESKTOP / TABLET (>= 768px) */
 
 @media (min-width: 768px) {
-    .fullscreen-section {
-        padding: 20px;
-    }
+  .fullscreen-section {
+    padding: 20px;
+  }
 
-    .titulo_sessao {
-        font-size: 2em;
-    }
+  .titulo_sessao {
+    font-size: 2em;
+  }
 
-    .content-wrapper {
-        flex-direction: row;
-        /* Coloca Mapa e Imagem lado a lado */
-        gap: 20px;
-    }
+  .content-wrapper {
+    flex-direction: row;
+    /* Coloca Mapa e Imagem lado a lado */
+    gap: 20px;
+  }
 
-    .mapa-container,
-    .image-container {
-        flex-basis: 50%;
-        /* Ocupa 50% do espaço horizontal */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  .mapa-container,
+  .image-container {
+    flex-basis: 50%;
+    /* Ocupa 50% do espaço horizontal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 }
 
 /* MEDIA QUERY 2: Telas pequenas */
 @media (max-width: 480px) {
-    .titulo_sessao {
-        font-size: 1.3em;
-    }
+  .titulo_sessao {
+    font-size: 1.3em;
+  }
 
-    .titulo_mapa,
-    .titulo_fachada {
-        font-size: 0.9em;
-    }
+  .titulo_mapa,
+  .titulo_fachada {
+    font-size: 0.9em;
+  }
 
-    .mapa-container,
-    .image-container {
-        flex-basis: auto;
-        height: 250px;
-        /* dá uma altura fixa agradável */
-    }
+  .mapa-container,
+  .image-container {
+    flex-basis: auto;
+    height: 250px;
+    /* dá uma altura fixa agradável */
+  }
 
-    .mapa-iframe,
-    .image-container img {
-        height: 100%;
-        object-position: center center;
-        /* garante foco central */
-    }
+  .mapa-iframe,
+  .image-container img {
+    height: 100%;
+    object-position: center center;
+    /* garante foco central */
+  }
 
-    .endereco-info {
-        font-size: 0.75em;
-        padding: 8px;
-    }
+  .endereco-info {
+    font-size: 0.75em;
+    padding: 8px;
+  }
 }

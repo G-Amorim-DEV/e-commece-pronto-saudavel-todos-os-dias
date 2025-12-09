@@ -13,10 +13,10 @@
   <div class="bloco-footer pagamento"> 
       <h3>Formas de Pagamento:</h3>
       <div id="pagamento-footer">
-        <img src="<?= BASE_URL ?>/views/partials/img/icons/pix.png" alt="Pix">
-        <img src="<?= BASE_URL ?>/views/partials/img/icons/dinheiro.png" alt="Dinheiro">
-        <img src="<?= BASE_URL ?>/views/partials/img/icons/debito.png" alt="Débito">
-        <img src="<?= BASE_URL ?>/views/partials/img/icons/credito.png" alt="Crédito">
+        <img src="<?= BASE_URL ?>/public/images/icons/pix.png" alt="Pix">
+        <img src="<?= BASE_URL ?>/public/images/icons/dinheiro.png" alt="Dinheiro">
+        <img src="<?= BASE_URL ?>/public/images/icons/debito.png" alt="Débito">
+        <img src="<?= BASE_URL ?>/public/images/icons/credito.png" alt="Crédito">
       </div>
   </div>
 

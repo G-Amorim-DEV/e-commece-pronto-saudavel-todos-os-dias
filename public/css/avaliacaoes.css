@@ -1,5 +1,3 @@
-/* sessão geral */
-
 .sessao_avaliacoes {
     width: 100%;
     background-color: #0f6a2b;
@@ -8,14 +6,14 @@
     flex-direction: column;
     align-items: center;
 }
-
+ 
 .sessao_avaliacoes h2 {
     color: white;
     font-size: 2rem;
     margin-bottom: 30px;
     font-weight: 600;
 }
-
+ 
 /*  áea do carrossel  */
 .carrossel {
     width: 100%;
@@ -25,7 +23,7 @@
     justify-content: center;
     gap: 15px;
 }
-
+ 
 /* botões de avançar - voltar */
 .btn_voltar,
 .btn_avancar {
@@ -37,24 +35,25 @@
     padding: 10px;
     transition: 0.2s;
 }
-
+ 
 .btn_voltar:hover,
 .btn_avancar:hover {
     transform: scale(1.15);
 }
-
+ 
 /*  Carrossel */
 .carrossel_avaliacoes {
     overflow: hidden;
     display: flex;
     gap: 15px;
-    width: 100%;       
+    width: calc(300px * 3 + 15px * 2);
+    margin: 0 auto;
 }
-
+ 
 /* card avaliacão */
 .artigo_avaliacao {
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 300px;
+    max-width: 300px;
     background: white;
     border-radius: 10px;
     padding: 20px;
@@ -62,7 +61,7 @@
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
-
+ 
 /* avatar com o nome ao lado */
 .avaliacao_header {
     display: flex;
@@ -71,46 +70,40 @@
     gap: 12px;
     margin-bottom: 15px;
 }
-
-.avatar {
-    width: 45px;
-    height: 45px;
-    background-color: #ccc;
-    border-radius: 50%;
-}
-
+ 
 .nome_usuario {
     font-weight: 600;
 }
-
+ 
 /* avaliação(texto) */
 .artigo_avaliacao p {
     font-size: 0.95rem;
     color: #333;
     margin-bottom: 15px;
 }
-
+ 
 /* estrelas */
 .avaliacao_estrelas {
     font-size: 1.1rem;
     font-weight: bold;
     color: #ffbb00;
 }
-
+ 
 .avaliacao_estrelas span {
     color: #555;
     font-size: 0.9rem;
     margin-left: 5px;
 }
-
+ 
 /* responsividade */
 @media (max-width: 768px) {
     .carrossel_avaliacoes {
-        width: 90%;
+        width: 350px;
+        overflow: hidden;
     }
-
+ 
     .artigo_avaliacao {
-        min-width: 240px;
-        max-width: 240px;
+        width: 350px;
     }
 }
+ 

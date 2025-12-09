@@ -83,20 +83,48 @@
 /* SEGUNDA SECTION (COMO FUNCIONA) */
 
 .segunda_section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 50px;
+}
+
+/* cada lado ocupa metade */
+.acao_personal_chefe,
+.video_acao_personal_chefe {
+  flex: 1;
+}
+
+/* DESKTOP → texto à esquerda, imagem/vídeo à direita */
+.acao_personal_chefe {
+  order: 1;
+}
+
+.video_acao_personal_chefe {
+  order: 2;
+}
+
+/* .segunda_section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0px 50px;
   justify-content: center;
-}
+} */
 
-.foto_acao_personal_chefe img {
+/* FOTO (DESKTOP) */
+.video_acao_personal_chefe img {
   width: 100%;
   max-width: 440px;
-
   height: auto;
   object-fit: cover;
   display: block;
   margin: 0 auto;
+  border-radius: 20px;
+}
+
+/* VÍDEO — escondido no desktop */
+.video_mobile {
+  display: none;
 }
 
 .acao_personal_chefe {
@@ -110,14 +138,10 @@
   padding: 0px;
 }
 
-.foto_acao_personal_chefe {
+.video_acao_personal_chefe {
   display: grid;
   place-items: center;
   padding: 0px 20px;
-}
-
-.foto_acao_personal_chefe img {
-  border-radius: 20px;
 }
 
 /* INFORMAÇÕES FINAIS */
@@ -125,7 +149,7 @@
 .informacoes_personal_chefe {
   display: flex;
   flex-direction: column;
-  padding: 0px 50px;
+  padding: 0px 35px;
   gap: 10px;
 }
 
@@ -210,10 +234,34 @@ p {
     position: relative;
   }
 
-  .foto_acao_personal_chefe {
+  .video_acao_personal_chefe {
     height: auto;
     display: flex;
     align-items: center;
+  }
+
+  .sessao_planos_personal_chefe {
+    margin-top: 70px;
+  }
+}
+
+/* ====== VÍDEO EXIBIDO SÓ NO MOBILE ====== */
+
+@media (max-width: 768px) {
+  /* esconder imagem no mobile */
+  .video_acao_personal_chefe img {
+    display: none;
+  }
+
+  /* mostrar vídeo */
+  .video_mobile {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto;
+    object-fit: cover;
   }
 }
 
@@ -237,12 +285,20 @@ p {
     align-items: center;
   }
 
+  /* MOBILE → empilhado, com IMAGEM/VÍDEO primeiro e TEXTO depois */
   .segunda_section {
-    grid-template-columns: 1fr;
-
+    flex-direction: column;
     padding: 0 20px;
+    gap: 20px;
   }
 
+  .video_acao_personal_chefe {
+    order: 1;
+  }
+
+  .acao_personal_chefe {
+    order: 2;
+  }
   .galeria_personal_chefe figure {
     height: 280px;
     margin-top: 0;
@@ -279,8 +335,9 @@ p {
 
 @media (max-width: 350px) {
   .segunda_section {
-    grid-template-columns: 1fr;
-    grid-template-rows: 3.8fr 1fr;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
   }
 
   .galeria_personal_chefe figure {

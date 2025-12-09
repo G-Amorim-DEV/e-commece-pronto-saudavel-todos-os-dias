@@ -17,7 +17,7 @@
         } else {
             $podeLogar = realizarLogin($conexao, $email, $senha);
             if ($podeLogar === true) {
-                header("Location: " . BASE_URL . "/public/index.php?page=home");
+                header("Location: " . BASE_URL . "/public/index.php?page=dashboard_cliente");
                 exit;
             } else {
                 $erro = $podeLogar;
@@ -26,7 +26,6 @@
     }
 
 ?>
-
 <!-- Criei este ID "login-wrapper" para simular o que o body fazia antes -->
 <div class="login-wrapper">
     
@@ -35,7 +34,7 @@
 
         <div class="topo">
             <!-- Botão de voltar (mantive a lógica, só ajustei classe se precisar) -->
-             <a href="<?= BASE_URL ?>/public/index.php?page=home" class="bt-voltar">↩</a>
+             <a href="<?= BASE_URL ?>/public/index.php" class="bt-voltar">↩</a>
         </div>
 
         <h2>Login</h2>
@@ -56,7 +55,6 @@
                 <input type="password" name="senha" id="senha" class="input-login">
             </div>
 
-            <a href="<?= BASE_URL ?>/public/index.php?page=recuperar_senha" class="" style="tex-align:center;">Esqueceu Senha</a>
             <div class="dosBotoes">
                 <!-- Adicionei a classe btn-entrar -->
                 <button type="submit" class="btn-entrar">Entrar</button>

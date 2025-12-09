@@ -72,7 +72,7 @@
                     <?php if ($usuario_logado): ?>
  
                         <a id="nome_logado" href="<?= $baseUrl ?>/public/index.php?page=dashboard_cliente">Olá, <?= htmlspecialchars($nome_usuario) ?></a>
-                        <a id="sair" href="<?= $baseUrl ?>/views/pages/auth/logout.php">Sair</a>
+                        <a id="sair" href="<?= $baseUrl ?>/public/index.php?page=logout">Sair</a>
  
                     <?php else: ?>
                         <a href="<?= $baseUrl ?>/public/index.php?page=login">
@@ -141,9 +141,11 @@
             <a id="logo" href="<?= $baseUrl ?>/public/index.php?page=home"></a>
  
             <!-- Barra de pesquisa -->
-            <div id="busca">
-                <input type="text" placeholder="🔍">
-            </div>
+            <form id="busca" action="<?= $baseUrl ?>/public/index.php" method="GET">
+                <input type="hidden" name="page" value="produtos_buscados">
+
+                <input type="search" name="busca" placeholder="Digite o produto que deseja aqui...">
+            </form>
  
         </div>
  
@@ -171,11 +173,11 @@
  
  
                         <?php if ($usuario_logado): ?>
-                            <a href="#"> <span id="nome_usuario_logado">Olá, <?= htmlspecialchars($nome_usuario) ?></span> </a>
-                            <a href="/e-commece-pronto-saudavel-todos-os-dias/views/pages/auth/logout.php" class="btn">Sair</a>
+                            <a href="<?= $baseUrl ?>/public/index.php?page=dashboard_cliente"> <span id="nome_usuario_logado">Olá, <?= htmlspecialchars($nome_usuario) ?></span> </a>
+                            <a href="<?= $baseUrl ?>/public/index.php?page=logout" class="btn">Sair</a>
                         <?php else: ?>
-                            <li><a href="/e-commece-pronto-saudavel-todos-os-dias/views/pages/auth/login.php">Entrar</a></li>
-                            <li><a href="/e-commece-pronto-saudavel-todos-os-dias/views/pages/auth/register.php">Cadastrar</a></li>
+                            <li><a href="<?= $baseUrl ?>/public/index.php?page=login">Entrar</a></li>
+                            <li><a href="<?= $baseUrl ?>/public/index.php?page=registrar">Cadastrar</a></li>
                         <?php endif; ?>
  
                     </ul>
@@ -186,8 +188,9 @@
                         <li><a href="<?= $baseUrl ?>/public/index.php?page=personalChefe">Personal Chefe</a></li>
                         <li><a href="">Entregas</a></li>
                         <li><a href="<?= $baseUrl ?>/public/index.php?page=carrinho_de_compras">Carrinho de Compras</a></li>
-                        <li><a href="<?= $baseUrl ?>/public/index.php?page=produtos">Marmitas</a></li>
-                        <li><a href="">Outros Produtos</a></li>
+                        <a href="<?= $baseUrl ?>/public/index.php?page=marmitas">Marmitas</a>
+                        <a href="<?= $baseUrl ?>/public/index.php?page=outros">Outros Produtos</a>
+
                         <li><a href="<?= $baseUrl ?>/public/index.php?page=about">Quem Somos</a></li>
  
                     </ul>

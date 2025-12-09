@@ -14,46 +14,52 @@ body {
         margin-bottom: 60px;
     }
 
-    .administracao {
-        display: flex;
-        justify-content: center;
-        gap: 80px;
+.administracao {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Reduzi um pouco para ficar bom em telas médias */
+    flex-wrap: wrap; /* Se a tela for pequena, um cai pra baixo do outro */
+    
+    /* Garante que fique acima do fundo */
+    position: relative; 
+    z-index: 2;
+}
 
-        margin-top: 50px;
-    }
+.blocos {
+    background-color: #ffffff;
+    width: 260px;
+    height: 140px;
+    border: 3px solid #12602c; /* Usando o verde padrão */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Tira o sublinhado do link */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* O SEGREDO: Força o botão a ficar na frente da textura de fundo */
+    position: relative;
+    z-index: 10;
+}
 
-    .blocos {
-        background-color: #ffffff;
-        width: 260px;
-        height: 140px;
+.blocos:hover {
+    background-color: #f4fff4;
+    transform: translateY(-5px) scale(1.05); /* Efeito de flutuar + crescer */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-color: #2c5e2e;
+}
 
-        border: 3px solid #2c5e2e;
-        border-radius: 12px;
+.blocos img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
 
-        display: flex;
-
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    .blocos:hover {
-        background-color: #f4fff4;
-        transform: scale(1.06);
-    }
-
-    .blocos img {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 12px;
-    }
-
-    .blocos span {
-        font-size: 24px;
-        font-weight: bold;
-
-        color: #2c5e2e;
-    }
+.blocos span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #12602c;
+}

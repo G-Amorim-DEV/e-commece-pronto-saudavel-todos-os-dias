@@ -1,7 +1,8 @@
 <?php
 
 // Função de Cadastro de Novos Usuarios
-function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone) { 
+function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone)
+{
 
     // 1. Validação básica de campos obrigatórios
     if (empty($nome) || empty($email) || empty($senha)) {
@@ -17,7 +18,7 @@ function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone) {
     if (!empty($telefone) && !ctype_digit(str_replace([' ', '(', ')', '-'], '', $telefone))) {
         return "Formato de telefone inválido. Use apenas números, parênteses e traços.";
     }
-    
+
     // 4. MELHORIA: Criptografia da senha (Hashing) com trim()
     // Remove espaços em branco antes/depois da senha e usa o algoritmo padrão recomendado.
     $senha_hash = password_hash(trim($senha), PASSWORD_DEFAULT);
@@ -27,10 +28,10 @@ function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone) {
         // Define a query SQL de inserção (usa placeholders nomeados para segurança)
         $sql = "INSERT INTO usuario (nome, email, senha, telefone)
                 VALUES (:nome, :email, :senha_hash, :telefone)"; //placeholder renomeado para clareza
-        
+
         // Prepara a instrução SQL para execução (evita SQL Injection)
         $Statement = $conexao->prepare($sql); // Statement -> significa Instrução
-        
+
         // Executa a instrução, passando os valores como um array associativo
         $Statement->execute([
             ':nome' => $nome,
@@ -41,7 +42,6 @@ function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone) {
 
         // Se a execução for bem-sucedida, retorna true
         return true;
-        
     } catch (PDOException $e) {
         // Captura exceções geradas pelo PDO
 
@@ -56,7 +56,7 @@ function cadastrar_usuario($conexao, $nome, $email, $senha, $telefone) {
     }
 }
 
-function realizarLogin($conexao,$email,$senha){
+function realizarLogin($conexao, $email, $senha){
     try {
         //Consulta ao banco de dados, o prepare com :mail é importante para evitar SQL inject
         $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email = :email LIMIT 1");
@@ -67,8 +67,8 @@ function realizarLogin($conexao,$email,$senha){
 
         // Verifica se o usuário existe e a senha está correta
         if ($user && password_verify($senha, $user["senha"])) {
-//Importante!!!  Isso faz gerar um novo id a cada sessão, isso impede o cliente de ter seus dados sequestrados por meio de roubo de cookies.
-            session_regenerate_id(true); 
+            //Importante!!!  Isso faz gerar um novo id a cada sessão, isso impede o cliente de ter seus dados sequestrados por meio de roubo de cookies.
+            session_regenerate_id(true);
             //Uma variavel global como um array, onde armazena os dados, quando tiver o adm tem que mudar aqui.
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_email"] = $user["email"];
@@ -85,73 +85,74 @@ function realizarLogin($conexao,$email,$senha){
         }
         // caso falhe o try
     } catch (Exception $e) {
-        
+
         $mensagem = "Erro ao tentar fazer login: " . $e->getMessage();
         echo "<script>alert('$mensagem'); window.history.back();</script>";
         exit; // Encerra o script PHP
-
     }
-
-    function solicitarRecuperacaoSenha($conexao, $email) {
-    // Verifica se o email existe
-    $sql = "SELECT id FROM usuario WHERE email = :email";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
-    
-    if ($stmt->rowCount() === 0) {
-        return false; // Email não existe (por segurança, não avisamos que não existe na tela)
     }
-
-    // Gera um código de 6 números
-    $codigo = rand(100000, 999999);
     
-    // Define validade para DAQUI A 15 MINUTOS
-    // (Pega a hora atual do servidor e soma 15 min)
-    $validade = date('Y-m-d H:i:s', strtotime('+15 minutes'));
 
-    // Salva no banco
-    $sql = "UPDATE usuario SET reset_token = :token, reset_expires = :expires WHERE email = :email";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindValue(':token', $codigo);
-    $stmt->bindValue(':expires', $validade);
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
-
-    return $codigo; // Retorna o código para a gente "simular" o envio
-}
-
-    // 2. Verifica o código e troca a senha
-    function redefinirSenha($conexao, $email, $codigo, $novaSenha) {
-        // Verifica se existe esse email com esse código E se a data ainda é válida
-        $sql = "SELECT id FROM usuarios 
-                WHERE email = :email 
-                AND reset_token = :token 
-                AND reset_expires > NOW()";
-                
+    function solicitarRecuperacaoSenha($conexao, $email)
+    {
+        // Verifica se o email existe
+        $sql = "SELECT id FROM usuario WHERE email = :email";
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':token', $codigo);
         $stmt->execute();
 
-        if ($stmt->rowCount() > 0) {
-            // Código válido! Vamos atualizar a senha.
-            // IMPORTANTE: Se você usa hash de senha (password_hash) no cadastro, use aqui também!
-            // Vou assumir que você está salvando texto puro por enquanto, mas se não, avise.
-            
-            $sqlUrl = "UPDATE usuarios SET senha = :senha, reset_token = NULL, reset_expires = NULL WHERE email = :email";
-            $update = $conexao->prepare($sqlUrl);
-            $update->bindValue(':senha', $novaSenha); // Se usar hash: password_hash($novaSenha, PASSWORD_DEFAULT)
-            $update->bindValue(':email', $email);
-            $update->execute();
-            
-            return true;
+        if ($stmt->rowCount() === 0) {
+            return false; // Email não existe (por segurança, não avisamos que não existe na tela)
         }
-        
-        return "Código inválido ou expirado.";
+
+        // Gera um código de 6 números
+        $codigo = rand(100000, 999999);
+
+        // Define validade para DAQUI A 15 MINUTOS
+        // (Pega a hora atual do servidor e soma 15 min)
+        $validade = date('Y-m-d H:i:s', strtotime('+15 minutes'));
+
+        // Salva no banco
+        $sql = "UPDATE usuario SET reset_token = :token, reset_expires = :expires WHERE email = :email";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(':token', $codigo);
+        $stmt->bindValue(':expires', $validade);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+
+        return $codigo; // Retorna o código para a gente "simular" o envio
     }
 
+    // 2. Verifica o código e troca a senha
+function redefinirSenha($conexao, $email, $codigo, $novaSenha)
+{
+    // 1. Verifica se o código é válido (Corrige tabela para 'usuario')
+    $sql = "SELECT id FROM usuario 
+            WHERE email = :email 
+            AND reset_token = :token 
+            AND reset_expires > NOW()";
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':token', $codigo);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        
+        // --- A CORREÇÃO ESTÁ AQUI ---
+        // Criptografa a nova senha antes de salvar
+        $senhaHash = password_hash(trim($novaSenha), PASSWORD_DEFAULT);
+
+        // Atualiza a senha no banco (Corrige tabela para 'usuario')
+        $sqlUrl = "UPDATE usuario SET senha = :senha, reset_token = NULL, reset_expires = NULL WHERE email = :email";
+        
+        $update = $conexao->prepare($sqlUrl);
+        $update->bindValue(':senha', $senhaHash); // Agora salvamos o hash!
+        $update->bindValue(':email', $email);
+        $update->execute();
+
+        return true;
+    }
+
+    return "Código inválido ou expirado.";
 }
-
-
-?>
