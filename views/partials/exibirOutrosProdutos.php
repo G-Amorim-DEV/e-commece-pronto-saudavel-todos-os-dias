@@ -1,14 +1,9 @@
 <?php
 
-/**
- * Exibe produtos que NÃO contenham "marmita" no nome
- * e NÃO pertençam à categoria de Marmitas (id 7).
- */
 function exibirProdutosExcetoMarmitas($conexao, $templatePath, $baseUrl)
 {
     try {
 
-        // ID da categoria "Marmitas"
         $idCategoriaMarmitas = 7;
 
         $sql = "SELECT * FROM produtos
@@ -26,16 +21,10 @@ function exibirProdutosExcetoMarmitas($conexao, $templatePath, $baseUrl)
             return;
         }
 
+   
         while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-            $produto['preco'] = $produto['valor'] ?? 0;
-
-            if (!empty($produto['imagem_url'])) {
-                $produto['imagem_url'] = $baseUrl . $produto['imagem_url'];
-            } else {
-                $produto['imagem_url'] = $baseUrl . "/public/images/sem-imagem.png";
-            }
-
+            
+    
             include $templatePath;
         }
 

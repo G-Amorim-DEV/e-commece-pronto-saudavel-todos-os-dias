@@ -8,6 +8,7 @@
   display: grid;
   gap: 50px;
   padding-top: 10px;
+  margin-top: 20px;
 
   box-sizing: border-box;
 }
@@ -253,6 +254,10 @@ p {
     display: none;
   }
 
+  .pg_personal_chefe {
+     margin-top: 90px;
+  }
+
   /* mostrar vídeo */
   .video_mobile {
     display: block;
@@ -271,6 +276,7 @@ p {
     place-items: center;
     padding-top: 0;
     gap: 0px;
+    margin-top: 90px;
   }
 
   .primeira_section {

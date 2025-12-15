@@ -87,6 +87,19 @@ function listarProdutos($conexao) {
     return $consulta->fetchAll();
 }
 
+
+function listarProdutosDestaque($conexao, $limite = 9) {
+    // Ordenamos por ID decrescente para pegar os mais novos, ou RAND() para aleatórios
+    // LIMIT limita a quantidade trazida
+    $sql = "SELECT * FROM produtos ORDER BY id DESC LIMIT $limite";
+
+    $consulta = $conexao->query($sql);
+
+    // Retorna array associativo
+    return $consulta->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function atualizarProduto($conexao, $id, $nome, $descricao, $valor, int $estoque, $imagem) {
     if (empty($id)) {
         return "ID do produto é obrigatório para atualização.";

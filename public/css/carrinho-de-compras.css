@@ -1,58 +1,64 @@
+* {
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    margin: 0;
+    padding: 0;
+}
+
 .sessaoCarrinho {
-
+ 
     padding-top: 100px;
-    min-height: 84.2vh;
+    min-height: 76.9vh;
     overflow-x: auto;
-
+ 
 }
-
+ 
 .sessaoCarrinho h1 {
-
+ 
     margin-left: 10px;
-
+ 
 }
-
+ 
 #vazio {
-
+ 
     padding-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+ 
     font-size: 20px;
     font-weight: 600;
-
+ 
 }
-
+ 
 #cheio {
-
+ 
     padding-top: 40px;
-
+ 
 }
-
+ 
 #tabelaMobile {
-
+ 
     display: none;
-
+ 
 }
-
+ 
 .tab {
-
+ 
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-
+ 
 }
-
+ 
 .tab thead {
     position: sticky;
     /* faz o header grudar */
     top: 0;
     z-index: 5;
 }
-
+ 
 .tab thead th {
     text-align: left;
     padding: 12px 16px;
@@ -60,33 +66,33 @@
     color: #222;
     font-size: 15px;
 }
-
+ 
 .tab tbody tr {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     margin-bottom: 10px;
 }
-
+ 
 .tab td {
     padding: 12px 16px;
     vertical-align: middle;
     color: #333;
 }
-
+ 
 .tab td:first-child {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
+ 
 .tab img {
     width: 55px;
     height: 55px;
     object-fit: cover;
     border-radius: 8px;
 }
-
+ 
 .botao-deletar {
     background-color: white;
     border: none;
@@ -100,12 +106,12 @@
     background-position: center;
     background-size: 18px;
 }
-
+ 
 .botao-deletar:hover {
     background-color: #d9534f;
     background-image: url("data:image/svg+xml;utf8,<svg fill='%23fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M3 6h18v2H3V6zm2 3h14v13H5V9zm3 2v9h2v-9H8zm6 0v9h2v-9h-2zM9 4V2h6v2h5v2H4V4h5z'/></svg>");
 }
-
+ 
 .quantidade-container {
     display: inline-flex;
     align-items: center;
@@ -114,7 +120,7 @@
     overflow: hidden;
     border: 1px solid #ddd;
 }
-
+ 
 .btn-quantidade {
     background: transparent;
     border: none;
@@ -124,11 +130,11 @@
     color: #333;
     transition: background 0.2s;
 }
-
+ 
 .btn-quantidade:hover {
     background: #e0e0e0;
 }
-
+ 
 .input-quantidade {
     width: 35px;
     text-align: center;
@@ -137,29 +143,29 @@
     font-size: 15px;
     color: #333;
 }
-
+ 
 #total-carrinho {
-
+ 
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
-
+ 
 }
-
+ 
 #total-carrinho h3 {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-
+ 
     border: 1px solid #333;
     padding: 10px 25px;
     border-radius: 6px;
-
+ 
 }
-
+ 
 .botao-pagamento {
-
+ 
     background-color: #28a745;
     color: white;
     border: none;
@@ -168,19 +174,19 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
-
+ 
 }
-
+ 
 #butaos {
-
+ 
     display: flex;
     align-items: center;
     gap: 10px;
-
+ 
 }
-
+ 
 #botao-pagamento a {
-
+ 
     background-color: #28a745;
     color: white;
     border: none;
@@ -189,127 +195,277 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
-
+ 
     text-decoration: none;
     color: white;
-    
+   
     font-weight: 600;
-
+ 
 }
-
+ 
 #botao-pagamento a:hover {
-
+ 
     background-color: #13461e;
-
+ 
 }
-
+ 
 .botao-pagamento:hover {
     background-color: #13461e;
 }
-
+ 
 #topoMobile {
-
+ 
     width: 100vw;
     display: flex;
     gap: 10px;
     align-items: center;
     padding: 5px;
-
+ 
 }
-
+ 
 #infoMobile {
-
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+   
 }
-
+ 
 #infoMobile p {
-
+ 
     margin: 0;
     padding: 0;
-
+ 
     font-weight: 600;
-
+ 
 }
-
+ 
 #meioMobile {
-
+ 
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+   
 }
-
+ 
 #meioMobile p {
-
+ 
     margin: 0;
     padding: 0;
     font-weight: 600;
-
+ 
 }
 
-@media (max-width: 650px) {
+@media screen and (max-width: 768px) {
 
-    #tabelaDesktop { display: none; }
-    #tabelaMobile { display: flex; }
-    #vazio { padding-top: 0px; }
-    #cheio { padding-top: 0px; }
 
     .sessaoCarrinho {
-
-        padding-top: 0px;
-        min-height: 100vh;
-        overflow-x: auto;
-
+        padding-top: 10px; /* Reduzi para o mínimo necessário */
+        margin-top: 0;
     }
 
-    #total-carrinho h3 {
-    
-        font-size: 15px;
-        font-weight: 600;
+    /* 2. Zera a margem do container do título */
+    #cheio {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    /* 3. O principal culpado: Zera a margem topo do H1 */
+    #cheio h1 {
+        margin-top: 0px;     /* Remove o empurrão para baixo */
+        padding-top: 0;
+        margin-bottom: 15px; /* Mantém apenas o espaço de baixo */
+        
+        /* Mantendo a centralização que fizemos antes */
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    /* 1. Esconde o cabeçalho da tabela (th) pois não serve em cards */
+    #tab_he {
+        display: none;
+    }
+
+    /* 2. Transforma a tabela e seus elementos em blocos empilhados */
+    #tabelaDesktop, 
+    #tab_bo, 
+    #tab_bo tr, 
+    #tab_bo td {
+        display: block;
+        width: 100%;
+    }
+
+    #cheio h1 {
+        text-align: center;
+        font-size: 1.5rem; /* Um pouco menor para não quebrar linha */
+        margin-top: 10px;
+        margin-bottom: 20px;
         color: #333;
-        border: 1px solid #333;
-        padding: 5px;
-        border-radius: 6px;
-
     }
 
-    #botao-pagamento a {
+    /* 3. Estiliza a LINHA (TR) para parecer um CARTÃO */
+    #tab_bo tr {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave */
+        padding: 15px;
+        position: relative; /* Para posicionar o botão de excluir */
+    }
 
+    /* 4. Estiliza as CÉLULAS (TD) para ficarem lado a lado (Label + Valor) */
+    #tab_bo td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1rem;
+    }
+
+    /* Remove a borda do último item para ficar mais limpo */
+    #tab_bo td:last-child {
+        border-bottom: none;
+    }
+
+    /* 5. INSERE OS TÍTULOS (Labels) VIA CSS 
+       (Isso evita que você tenha que mexer no HTML agora) */
+    
+    /* Coluna 3: Nome do Produto */
+    #tab_bo td:nth-of-type(3)::before {
+        content: "Produto:";
+        font-weight: bold;
+        color: #666;
+    }
+
+    /* Coluna 4: Preço */
+    #tab_bo td:nth-of-type(4)::before {
+        content: "Preço un.:";
+        font-weight: bold;
+        color: #666;
+    }
+
+    /* Coluna 5: Quantidade */
+    #tab_bo td:nth-of-type(5)::before {
+        content: "Quantidade:";
+        font-weight: bold;
+        color: #666;
+    }
+
+    /* Coluna 6: Subtotal */
+    #tab_bo td:nth-of-type(6)::before {
+        content: "Subtotal:";
+        font-weight: bold;
+        color: #333; /* Mais escuro para destaque */
+    }
+    
+    /* Estiliza o Subtotal para ficar maior no mobile */
+    #tab_bo td:nth-of-type(6) {
+        font-weight: bold;
+        color: #2ecc71; /* Um verde para indicar dinheiro */
+        font-size: 1.1rem;
+    }
+
+    /* --- TRATAMENTO ESPECIAL PARA O BOTÃO DE EXCLUIR E IMAGEM --- */
+
+    /* Coluna 1: Lixeira (Posiciona no topo direito do card) */
+    #tab_bo td:nth-of-type(1) {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: auto;
+        border: none;
+        padding: 0;
+    }
+
+    /* Coluna 2: Imagem (Centraliza no topo do card) */
+    #tab_bo td:nth-of-type(2) {
+        justify-content: center;
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
+    
+    #tab_bo td:nth-of-type(2) img {
+        width: 80px; /* Aumenta um pouco a imagem no mobile */
+        height: auto;
+    }
+    
+    /* Input de quantidade - Ajuste para não quebrar layout */
+    .quantidade-container {
+        display: flex;
+        align-items: center;
+    }
+
+    #total-carrinho {
+        display: flex;
+        flex-direction: column; /* Empilha um embaixo do outro */
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 2px dashed #eee; /* Uma separação visual sutil */
+    }
+
+    /* 3. O TOTAL (PREÇO) */
+    /* Queremos que o total apareça em destaque, como um bloco */
+    #total-carrinho h3 {
+        width: 100%;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1.3rem;
+        margin-bottom: 15px; /* Espaço para os botões abaixo */
+        order: 1; /* Força o Total a aparecer ANTES dos botões */
+    }
+
+    /* 4. CONTAINER DOS BOTÕES */
+    #butaos {
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* Botões um embaixo do outro */
+        gap: 15px; /* Espaço entre eles */
+        order: 2; /* Aparece DEPOIS do total */
+    }
+
+    /* 5. ESTILIZAÇÃO DO BOTÃO "ADICIONAR" E "FINALIZAR" */
+    #botao-pagamento {
+        width: 100%;
+        margin: 0; /* Remove margens laterais antigas */
+    }
+
+    /* Garante que o link (A) ou botão (BUTTON) ocupe a largura total */
+    #botao-pagamento a, 
+    .botao-pagamento {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0; /* Botão mais alto é melhor para o dedo */
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        box-sizing: border-box; /* Garante que o padding não estoure a tela */
+    }
+
+    /* Cor do botão Adicionar (Verde, por exemplo) */
+    #botao-pagamento a {
         background-color: #28a745;
         color: white;
-        border: none;
-        padding: 6px;
-        border-radius: 6px;
-        font-weight: 600;
-        
-        transition: background-color 0.3s;
-
-        text-decoration: none;
-        color: white;
-        
     }
 
-    .botao-pagamento {
-
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 5px;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
+    /* 6. MENSAGEM DE LOGIN */
+    /* Centraliza e dá destaque ao aviso vermelho */
+    #butaos p {
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px;
+        background-color: #fff3f3; /* Fundo vermelho bem clarinho */
+        border-radius: 5px;
     }
-
-    #sessaoMobile {
-
-        border: solid 1px #9c9c9c;
-        margin-bottom: 5px;
-
-    }
-
 }

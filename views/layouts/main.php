@@ -39,6 +39,24 @@ $baseUrl = rtrim(str_replace('/public', '', $baseUrl), '/');
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/css/footer.css">
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/css/administracaoPainel.css">
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/css/produtos-crud.css">
+
+    <style>
+            body {
+                margin: 0;
+                padding: 0;
+                
+                /* A MÁGICA ACONTECE AQUI */
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh; /* Força o corpo a ter no MÍNIMO a altura da tela inteira */
+            }
+
+            /* Faz o conteúdo principal crescer e empurrar o rodapé */
+            main {
+                flex: 1; /* Ocupa todo o espaço disponível que sobrar entre o header e o footer */
+            }
+            
+    </style>
 </head>
 <body>
 
